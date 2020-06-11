@@ -26,8 +26,8 @@ out_vf = np.argwhere(data['flag_voidfinder'] == 9).flatten()
 
 ## property variables
 print("loading property model variables")
-    
-# data and range 
+
+# data and range
 data1_wall_vf = remove_nan(g_r[wall_vf])
 data2_void_vf = remove_nan(g_r[void_vf])
 data1_wall_v2 = remove_nan(g_r[wall_v2])
@@ -138,28 +138,28 @@ def prior_xform2(u):
 
 
 #for VF
-# print("VoidFinder (VF)")
-# plot_hist(data1_wall_vf,data2_void_vf,bins_,label_vf)
-# #model 1
-# print("Running Model 1 using VF...")
+print("VoidFinder (VF)")
+plot_hist(data1_wall_vf,data2_void_vf,bins_,label_vf)
+#model 1
+print("Running Model 1 using VF...")
 
-# Model_1_fit(bounds1,data1_wall_vf,data2_void_vf,bins_,label_vf)
-# Model_1_sampler(prior_xform1,data1_wall_vf,data2_void_vf,bins_,label_vf)
-# lnZ1_vf = Model1_output(data1_wall_vf,data2_void_vf,bins_,label_vf)
+Model_1_fit(bounds1,data1_wall_vf,data2_void_vf,bins_,label_vf)
+Model_1_sampler(prior_xform1,data1_wall_vf,data2_void_vf,bins_,label_vf)
+lnZ1_vf = Model1_output(data1_wall_vf,data2_void_vf,bins_,label_vf)
 
-# #model2
-# print("Running Model 2 using VF...")
+#model2
+print("Running Model 2 using VF...")
 
-# Model_2_fit(bounds2,data1_wall_vf,data2_void_vf,bins_,label_vf)
-# Model_2_sampler(prior_xform2,data1_wall_vf,data2_void_vf,bins_,label_vf) 
-# lnZ2_vf = Model2_output(data1_wall_vf,data2_void_vf,bins_,label_vf)
+Model_2_fit(bounds2,data1_wall_vf,data2_void_vf,bins_,label_vf)
+Model_2_sampler(prior_xform2,data1_wall_vf,data2_void_vf,bins_,label_vf)
+lnZ2_vf = Model2_output(data1_wall_vf,data2_void_vf,bins_,label_vf)
 
 
-# #Baye's Factor
-# lnB12_vf = lnZ1_vf - lnZ2_vf
-# logB12_vf = 0.434 * lnB12_vf
+#Baye's Factor
+lnB12_vf = lnZ1_vf - lnZ2_vf
+logB12_vf = 0.434 * lnB12_vf
 
-# print("Log of Baye's Factor for g-r using VF is: ", logB12_vf)
+print("Log of Baye's Factor for g-r using VF is: ", logB12_vf)
 
 
 #for V2
@@ -176,7 +176,7 @@ print("Running Model 2 using V2...")
 
 #model2
 Model_2_fit(bounds2,data1_wall_v2,data2_void_v2,bins_,label_v2)
-Model_2_sampler(prior_xform2,data1_wall_v2,data2_void_v2,bins_,label_v2) 
+Model_2_sampler(prior_xform2,data1_wall_v2,data2_void_v2,bins_,label_v2)
 lnZ2_v2 = Model2_output(data1_wall_v2,data2_void_v2,bins_,label_v2)
 
 
@@ -185,8 +185,3 @@ lnB12_v2 = lnZ1_v2 - lnZ2_v2
 logB12_v2 = 0.434 * lnB12_v2
 
 print("Log of Baye's Factor for g-r using V2 is: ", logB12_v2)
-
-
-
-
-
